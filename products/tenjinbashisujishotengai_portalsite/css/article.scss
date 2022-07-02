@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/* 関数宣言 */
+
+$pink: #ffdcf2;
+$grey: #d8d8d8;
+$black: #333;
+
+$pc: 1024px; // PC
+$tab: 680px; // タブレット
+$sp: 480px; // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+/* 共通スタイル */
+
+.article_area {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10rem 0 6rem;
+}
+
+/* ヘッダー */
+
+.header_wrapper {
+  .logo_area {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 15;
+    width: 150px;
+    text-align: center;
+    transition: 0.7s;
+    @include tab {
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: #fff;
+      height: 50px;
+      z-index: 23;
+    }
+    &.fixed {
+      top: 0;
+      left: 0;
+      padding-left: 3%;
+      width: auto;
+      transition: 0.5s;
+      @include tab {
+        padding-left: 0;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+      }
+      img.logo_pc {
+        width: 85px;
+        height: auto;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    img.logo_pc {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      @include tab {
+        display: none;
+      }
+    }
+    img.logo_sp {
+      display: none;
+      @include tab {
+        display: inline-block;
+        width: 100%;
+        height: 44px;
+        margin-top: 3px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+/* 特集記事 */
+
+.article_area {
+  padding-top: 10rem;
+  h2 {
+    span{
+    position: relative;
+    text-align: center;
+      &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        background-image: url(../img/icon_article.svg);
+        background-repeat: no-repeat;
+        width: 50px;
+        height: 50px;
+        left: 50%;
+        top: 65px;
+        transform: translateX(-50%);
+        background-position: center center;
+      }
+    }
+  }
+  .article_contents {
+    padding-top: 3rem;
+    .article_content {
+      @include sp {
+        margin-top: 2.5%;
+        margin-bottom: 2.5%;
+        position: relative;
+        min-height: 250px;
+        border: 1px solid #fff;
+      }
+      .img_area {
+        height: 200px;
+        @include sp {
+          width: 100%;
+          height: auto;
+          max-height: none;
+          z-index: 0;
+        }
+        a {
+          @include sp {
+            height: 100%;
+          }
+        }
+        img {
+          height: 200px;
+          object-fit: cover;
+          @include tab {
+            min-height: 200px;
+          }
+          @include sp {
+            height: auto;
+            max-height: none;
+            min-height: 248px;
+            position: absolute;
+            content: "";
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto;
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.3) 30%,
+              rgba(0, 0, 0, 0.7) 100%
+            );
+          }
+        }
+      }
+      .text_area {
+        @include sp {
+          width: 100%;
+          position: absolute;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          margin: auto;
+          color: #fff;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0) -10%, rgba(0, 0, 0, 0.3) 30%);
+        }
+        .ttl {
+          @include tab{
+            margin-left: 1rem;
+          }
+          @include sp {
+            border-bottom: 1px solid #fff;
+          }
+        }
+        .cmt {
+          @include sp {
+            margin-bottom: 0;
+          }
+        }
+        .r_arrow {
+          &::after {
+            @include sp {
+              border-top: 1px solid #fff;
+              border-right: 1px solid #fff;
+            }
+          }
+          a{
+            @include sp{
+              color: #fff;
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

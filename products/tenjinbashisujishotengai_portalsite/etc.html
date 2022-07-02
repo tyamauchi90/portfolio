@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>天神橋筋商店街ポータルサイト</title>
+    <style>
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      a {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+      }
+      .nav {
+        display: flex;
+        width: 100%;
+      }
+
+      .nav > li {
+        position: relative;
+        width: 20%;
+        border-right: 1px solid #0071b9;
+      }
+      .nav > li:first-child {
+        border-left: 1px solid #0071b9;
+      }
+
+      .nav a {
+        display: block;
+        line-height: 1;
+        z-index: 1;
+      }
+      .nav {
+        flex-flow: row no-wrap;
+      }
+      .nav a {
+        padding: 0.5em 0;
+        font-size: 16px;
+        color: #0071b9;
+        text-align: center;
+      }
+      .accordion_list {
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        max-width: 1100px;
+        width: 100vw;
+        /* width: 100%; */
+        /* min-height: 0; */
+        /* height: 0; */
+        visibility: hidden;
+        z-index: -1;
+        transition: all 0.5s;
+      }
+      .accordion_list > li > a {
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.75;
+        background-color: #0071b9;
+      }
+      .accordion_list > li > a:hover {
+        background-color: #004b83;
+        opacity: 1;
+      }
+      .accordion_list.active {
+        visibility: visible;
+        z-index: 3;
+        transition: all 0.5s;
+      }
+      .accordion_list.active .gloval_inner {
+        position: fixed;
+        /* top: 50%; */
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-color: #33333330;
+        width: 100vw;
+        height: 40vh;
+      }
+      .accordion_list.active .gloval_list {
+        max-width: 1100px;
+        margin: 0 auto;
+        background-color: #fff;
+      }
+      .header_contents {
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header_wrapper">
+        <!-- <div class="logo_area">
+          <a href="#"
+            ><h1>
+              <img
+                src="./img/logo_outline.svg"
+                alt="天神橋筋商店街商店街ポータルサイト"
+              />
+              <span>天神橋筋商店街ポータルサイト</span>
+            </h1></a
+          >
+        </div> -->
+        <div class="header_contents">
+          <nav>
+            <ul class="nav">
+              <li class="has_sub">
+                <a href="about.html"
+                  ><img
+                    src="./img/icon_tenjinbasisujishotengai.svg"
+                    alt="天神橋筋商店街とは"
+                  /><span>天神橋筋商店街とは</span></a
+                >
+                <ul class="accordion_list">
+                  <div class="gloval_inner">
+                    <div class="gloval_list">
+                      <li>
+                        <a href=""><p class="keyword">キーワードから知る</p></a>
+                      </li>
+                    </div>
+                  </div>
+                  <!-- gloval_inner -->
+                </ul>
+              </li>
+              <li class="has_sub">
+                <a href="spot.html"
+                  ><img
+                    src="./img/icon_modelroute.svg"
+                    alt="モデルコース"
+                  /><span>モデルコース</span></a
+                >
+                <ul class="accordion_list">
+                  <div class="gloval_inner">
+                    <div class="mordal_bg">
+                      <div class="gloval_list">
+                        <li>
+                          <a href=""
+                            ><p class="keyword">キーワードから知る</p></a
+                          >
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+              <li class="has_sub">
+                <a href="spot.html"
+                  ><img src="./img/icon_spot.svg" alt="周辺スポット" /><span
+                    >周辺スポット</span
+                  ></a
+                >
+                <ul class="accordion_list">
+                  <div class="gloval_inner">
+                    <div class="gloval_list">
+                      <li>
+                        <a href=""><p class="keyword">キーワードから知る</p></a>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+              <li class="has_sub">
+                <a href="article.html"
+                  ><img src="./img/icon_gourmand.svg" alt="グルメ" /><span
+                    >グルメ</span
+                  ></a
+                >
+                <ul class="accordion_list">
+                  <div class="gloval_inner">
+                    <div class="gloval_list">
+                      <li>
+                        <a href=""><p class="keyword">キーワードから知る</p></a>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+              <li class="has_sub">
+                <a href="article.html"
+                  ><img src="./img/icon_article.svg" alt="特集記事" /><span
+                    >特集記事</span
+                  ></a
+                >
+                <ul class="accordion_list">
+                  <div class="gloval_inner">
+                    <div class="gloval_list">
+                      <li>
+                        <a href=""><p class="keyword">キーワードから知る</p></a>
+                      </li>
+                    </div>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- header_wrapper -->
+    </header>
+    <script>
+      const hoverMenu = function () {
+        const mordalBg = document.querySelector(".mordal_bg");
+        const parent = document.querySelectorAll(".has_sub");
+        const children = document.querySelectorAll(".accordion_list");
+        // const glovalInner = document.querySelectorAll(".gloval_inner");
+
+        for (let i = 0; i < parent.length; i++) {
+          parent[i].addEventListener("mouseenter", (e) => {
+            e.preventDefault();
+            mordalBg.classList.add("active");
+            children[i].classList.add("active");
+            // glovalInner.classList.add("active");
+          });
+          parent[i].addEventListener("mouseleave", (e) => {
+            e.preventDefault();
+            mordalBg.classList.remove("active");
+            children[i].classList.remove("active");
+            // glovalInner.classList.remove("active");
+          });
+        }
+      };
+      hoverMenu();
+      // var parent = document.querySelectorAll(".has-sub");
+
+      // var node = Array.prototype.slice.call(parent, 0);
+
+      // node.forEach(function (element) {
+      //   element.addEventListener(
+      //     "mouseenter",
+      //     function () {
+      //       element.querySelector(".accordion_list").classList.add("active");
+      //     },
+      //     false
+      //   );
+      //   element.addEventListener(
+      //     "mouseleave",
+      //     function () {
+      //       element.querySelector(".accordion_list").classList.remove("active");
+      //     },
+      //     false
+      //   );
+      // });
+    </script>
+  </body>
+</html>

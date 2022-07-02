@@ -1,0 +1,744 @@
+@charset "UTF-8";
+/* 関数宣言 */
+/* 共通スタイル */
+html {
+  font-size: 62.5%;
+  font-family: "Kosugi Maru", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: serif;
+  font-size: 2.4rem;
+  text-align: center;
+  line-height: 2;
+  margin-top: 3rem;
+}
+
+.sub_ttl {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.purpose_area,
+.about_area,
+.spot_area,
+.mr_area,
+.article_area,
+.pr_area {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.purpose,
+.spot,
+.article {
+  background-color: #fef4fad0;
+}
+
+.btn_area {
+  text-align: center;
+  margin: 6rem 0;
+}
+
+.btn_area .more_btn {
+  width: 60%;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 100px;
+  -webkit-box-shadow: 2px 2px 0px #333;
+          box-shadow: 2px 2px 0px #333;
+  padding: 2rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.btn_area .more_btn:hover::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  -webkit-transform: translateX(10px) rotate(405deg);
+          transform: translateX(10px) rotate(405deg);
+  opacity: 0.5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn_area .more_btn::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  border-top: 1px solid #333;
+  border-right: 1px solid #333;
+  -webkit-transform: translateX(-10px) rotate(45deg);
+          transform: translateX(-10px) rotate(45deg);
+  opacity: 1;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn_area .more_btn a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  text-decoration: none;
+}
+
+.btn_area .more_btn a span {
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+.btn_area .more_btn:hover {
+  -webkit-box-shadow: 0px 0px 0px #333;
+          box-shadow: 0px 0px 0px #333;
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.at {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  line-height: 3rem;
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.at::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background-image: url(.././img/icon_spot.svg);
+  background-repeat: no-repeat;
+}
+
+/* ヘッダー */
+.header_wrapper {
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.header_wrapper .logo_area {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.header_wrapper .logo_area a {
+  display: inline-block;
+}
+
+.header_wrapper .logo_area img {
+  width: auto;
+  height: 70px;
+  display: inline-block;
+}
+
+.header_wrapper .logo_area span {
+  vertical-align: top;
+  line-height: 70px;
+  font-size: 3.2rem;
+  font-family: serif;
+}
+
+.header_wrapper .header_contents {
+  position: relative;
+}
+
+.header_wrapper .header_contents .mordal_bg.active {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(51, 51, 51, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.header_wrapper .header_contents nav dl {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.header_wrapper .header_contents nav dl dt {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10%;
+  min-width: 200px;
+}
+
+.header_wrapper .header_contents nav dl dt:not(:first-child) {
+  border-left: 1px solid #777;
+}
+
+.header_wrapper .header_contents nav dl dt a img {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: 0 auto;
+}
+
+.header_wrapper .header_contents nav dl dt a span {
+  padding-bottom: 3px;
+}
+
+.header_wrapper .header_contents nav dl dd {
+  width: 100%;
+  position: absolute;
+  top: 70;
+  left: 0;
+  right: 0;
+  margin: auto;
+  pointer-events: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.header_wrapper .header_contents nav dl dd.active {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+  z-index: 2;
+}
+
+.header_wrapper .header_contents nav dl dd.active .gloval_inner {
+  width: 100%;
+  max-width: 1100px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.header_wrapper .header_contents nav dl dd.active .gloval_inner .keyword_area {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.header_wrapper .header_contents nav dl dd .gloval_inner {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+/* メインビジュアル */
+.mainvisual {
+  display: none;
+}
+
+/* 天神橋筋商店街ポータルサイトについて */
+.purpose_area {
+  max-width: 1100px;
+}
+
+.purpose_area .text_area {
+  margin: 3rem 5%;
+  width: 90%;
+  border: 1px solid #333;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 0px #333;
+          box-shadow: 2px 2px 0px #333;
+  background-color: #fff;
+}
+
+.purpose_area .text_area p {
+  padding: 3rem;
+  font-size: 1.4rem;
+}
+
+/* 天神橋筋商店街とは */
+.about_area {
+  text-align: center;
+}
+
+.about_area .keyword {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.about_area .keyword_area {
+  max-width: 600px;
+  margin: 3rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.about_area .keyword_area a {
+  width: 20%;
+  margin: 1%;
+}
+
+.about_area .keyword_area a .kw_box {
+  width: 100%;
+  position: relative;
+  background-color: #ffdcf2;
+  border-radius: 100px;
+}
+
+.about_area .keyword_area a .kw_box::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.about_area .keyword_area a .kw_box:hover {
+  opacity: 0.8;
+}
+
+.about_area .keyword_area a .kw_box span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+}
+
+/* おすすめスポット */
+.spot_area .spot_contents {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.spot_area .spot_contents .spot_content {
+  max-width: 300px;
+  width: 30%;
+  border: 2px solid #d8d8d8;
+  border-radius: 30px;
+  -webkit-box-shadow: 2px 2px 2px #d8d8d8;
+          box-shadow: 2px 2px 2px #d8d8d8;
+  background-color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.spot_area .spot_contents .spot_content:nth-of-type(2) {
+  margin: 0 5%;
+}
+
+.spot_area .spot_contents .spot_content:hover {
+  opacity: 0.8;
+  -webkit-box-shadow: 0px 0px 0px #d8d8d8;
+          box-shadow: 0px 0px 0px #d8d8d8;
+  -webkit-transform: translate(2px, 2px);
+          transform: translate(2px, 2px);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.spot_area .spot_contents .spot_content .tag {
+  margin: 1.5rem 0 1.5rem 3rem;
+  line-height: 3rem;
+  font-size: 1rem;
+}
+
+.spot_area .spot_contents .spot_content .img_area {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.spot_area .spot_contents .spot_content .img_area a {
+  height: auto;
+}
+
+.spot_area .spot_contents .spot_content .img_area a img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 3px;
+}
+
+.spot_area .spot_contents .spot_content .spot_ttl {
+  margin: 1.5rem 0 1.5rem 3rem;
+  line-height: 3rem;
+  font-size: 1.4rem;
+}
+
+.spot_area .spot_contents .spot_content .at {
+  margin-left: 1rem;
+}
+
+/* モデルルート */
+.mr_area .mr_contents {
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mr_area .mr_contents .mr_content.wide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mr_area .mr_contents .mr_content {
+  width: calc(94% / 3);
+  margin: 1%;
+  border: 2px solid #d8d8d8;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.mr_area .mr_contents .mr_content .img_area {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.mr_area .mr_contents .mr_content .img_area img {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.mr_area .mr_contents .mr_content .img_area img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.mr_area .mr_contents .mr_content .text_area {
+  width: 100%;
+  padding: 3rem;
+  line-height: 3rem;
+}
+
+.mr_area .mr_contents .mr_content .text_area .ttl {
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 1.4rem;
+}
+
+.mr_area .mr_contents .mr_content .text_area .cmt {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.mr_area .mr_contents .mr_content .text_area .at {
+  padding-left: 2rem;
+}
+
+/* 特集記事 */
+.article_area .article_contents {
+  padding: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.article_area .article_contents .article_content {
+  width: calc(94% / 3);
+  margin: 1%;
+  border: 2px solid #d8d8d8;
+  border-radius: 30px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.article_area .article_contents .article_content .img_area {
+  width: 100%;
+}
+
+.article_area .article_contents .article_content .img_area img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.article_area .article_contents .article_content .img_area img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.article_area .article_contents .article_content .text_area {
+  width: 100%;
+  padding: 3rem;
+  line-height: 3rem;
+}
+
+.article_area .article_contents .article_content .text_area .ttl {
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 1.4rem;
+}
+
+.article_area .article_contents .article_content .text_area .cmt {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.article_area .article_contents .article_content .text_area .at {
+  padding-top: 6rem;
+  margin-left: 0;
+}
+
+/* PR */
+.pr_area p {
+  font-size: 1.8rem;
+  padding-left: 4rem;
+  margin-left: 1%;
+  position: relative;
+}
+
+.pr_area p span::before {
+  content: "";
+  display: inline-block;
+  padding: 0 2rem;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1.2rem;
+  background-image: url(.././img/icon_megaphone.png);
+  background-repeat: no-repeat;
+}
+
+.pr_area .pr_contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pr_area a {
+  max-width: 350px;
+  max-height: 225px;
+  width: calc(94% / 3);
+  margin: 1%;
+}
+
+.pr_area a img {
+  width: 100%;
+  height: auto;
+}
+
+/* 関連リンク */
+.link_area {
+  width: 100%;
+  margin: 3rem auto;
+}
+
+.link_area ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.link_area ul li {
+  margin: 1%;
+}
+
+.link_area ul li img:not(.current) {
+  opacity: 0.3;
+}
+
+/* フッター */
+footer {
+  background-color: #777;
+  color: #fff;
+  padding: 3rem 0;
+}
+
+footer .partners_area {
+  width: 100%;
+}
+
+footer .partners_area .partners_contents {
+  margin: 3rem auto;
+}
+
+footer .partners_area .partners_contents ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .partners_area .partners_contents ul li {
+  margin: 0.5%;
+}
+
+footer .partners_area .partners_contents ul li:hover {
+  opacity: 0.8;
+}
+
+footer .footer_nav {
+  width: 100%;
+}
+
+footer .footer_nav .nav_contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+footer .footer_nav .nav_contents .about_contents,
+footer .footer_nav .nav_contents .spot_contents,
+footer .footer_nav .nav_contents .article_contents {
+  margin: 3rem 5%;
+}
+
+footer .footer_nav .nav_contents h2 {
+  font-size: 1.2rem;
+  display: inline;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+footer .footer_nav .nav_contents .r_arrow {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 10px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+footer .footer_nav .nav_contents .nav_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 2;
+}
+
+footer .footer_nav .nav_contents .nav_content li {
+  padding-left: 2rem;
+}
+
+footer .footer_nav .nav_contents .nav_content a {
+  color: #fff;
+  display: inline-block;
+}
+
+footer .footer_nav .nav_contents .nav_content a:hover {
+  color: #ffdcf2;
+}
+
+footer p {
+  text-align: center;
+}
+/*# sourceMappingURL=style_ver.dl.css.map */

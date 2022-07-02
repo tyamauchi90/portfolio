@@ -1,0 +1,540 @@
+@charset "utf-8";
+
+/* 関数宣言 */
+
+$pink: #ffdcf2;
+$grey: #d8d8d8;
+$black: #333;
+
+$pc: 1024px; // PC
+$tab: 680px; // タブレット
+$sp: 480px; // スマホ
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+/* 共通スタイル */
+
+.spot_area,
+.research_area {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+.research {
+  background-color: #fef4fad0;
+}
+
+/* ヘッダー */
+
+.header_wrapper {
+  .logo_area {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 15;
+    width: 150px;
+    text-align: center;
+    transition: 0.7s;
+    @include tab {
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      background-color: #fff;
+      height: 50px;
+      z-index: 23;
+    }
+    &.fixed {
+      top: 0;
+      left: 0;
+      padding-left: 3%;
+      width: auto;
+      transition: 0.5s;
+      @include tab {
+        padding-left: 0;
+        width: 100%;
+        height: 50px;
+        background: #fff;
+      }
+      img.logo_pc {
+        width: 85px;
+        height: auto;
+      }
+    }
+  }
+  a {
+    display: inline-block;
+    img.logo_pc {
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      @include tab {
+        display: none;
+      }
+    }
+    img.logo_sp {
+      display: none;
+      @include tab {
+        display: inline-block;
+        width: 100%;
+        height: 44px;
+        margin-top: 3px;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+/* 周辺スポットを探す */
+
+.research_area {
+  padding-top: 10rem;
+  .research_contents {
+    .ttl {
+      font-size: 1.8rem;
+      text-align: center;
+      span{
+      position: relative;
+      text-align: center;
+        &::before{
+          content: "";
+          display: block;
+          position: absolute;
+          background-image: url(../img/icon_spot.svg);
+          background-repeat: no-repeat;
+          width: 50px;
+          height: 50px;
+          left: 50%;
+          top: 50px;
+          transform: translateX(-50%);
+          background-position: center center;
+        }
+      }
+    }
+    .sub_ttl{
+      margin-bottom: 6rem;
+    }
+    .choices_area {
+      & > p {
+        text-align: center;
+        font-size: 1.6rem;
+        line-height: 3;
+      }
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        border: 1px solid $black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        li {
+          width: 25%;
+          padding: 1.5rem 0;
+          text-align: center;
+          cursor: pointer;
+          &:first-child {
+            border-top-left-radius: 10px;
+          }
+          &:last-child {
+            border-top-right-radius: 10px;
+          }
+          &:not(:last-child) {
+            border-right: 1px solid $black;
+          }
+          &.show {
+            background-color: $pink;
+            transition: 0.5s;
+            .r_arrow::after {
+              transform: rotate(135deg);
+              transition: 0.5s;
+              margin-bottom: 3px;
+            }
+          }
+        }
+        .r_arrow {
+          transition: 0.5s;
+          &::after {
+            margin: 0 5px 1px;
+          }
+          span {
+            font-size: 1.4rem;
+            padding-right: 1.4rem;
+            @include tab {
+              padding-right: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+
+    .choices_contents {
+      .season_area {
+        width: 100%;
+        display: none;
+        &.show {
+          display: block;
+        }
+        .choices_season {
+          border: 1px solid #333;
+          border-top: none;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          ul {
+            display: flex;
+            li {
+              width: 25%;
+              font-size: 1.4rem;
+              padding: 1rem 0;
+              text-align: center;
+              cursor: pointer;
+              &:not(:last-child) {
+                border-right: 1px solid $black;
+              }
+              &.show {
+                background-color: $pink;
+                transition: 0.5s;
+                .r_arrow::after {
+                  transform: rotate(135deg);
+                  transition: 0.5s;
+                  margin-bottom: 3px;
+                }
+              }
+              .r_arrow::after {
+                transition: 0.5s;
+              }
+            }
+          }
+          .spring {
+            // background-color: rgb(251, 255, 202);
+            border-bottom-left-radius: 10px;
+          }
+          // .summer {
+          //   background-color: rgb(218, 255, 201);
+          // }
+          // .autumn {
+          //   background-color: rgb(252, 143, 107);
+          // }
+          .winter {
+            // background-color: rgb(136, 150, 255);
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .station_area {
+      width: 100%;
+      display: none;
+      &.show {
+        display: block;
+      }
+      .choices_station {
+        border: 1px solid #333;
+        border-top: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            width: 20%;
+            font-size: 1.4rem;
+            padding: 1rem 0;
+            text-align: center;
+            cursor: pointer;
+            @include tab {
+              min-width: calc(100% / 3);
+            }
+            &:not(:last-child) {
+              border-right: 1px solid $black;
+              @include tab {
+                border-right: none;
+              }
+            }
+            &.show {
+              background-color: $pink;
+              transition: 0.5s;
+              .r_arrow::after {
+                transform: rotate(135deg);
+                transition: 0.5s;
+                margin-bottom: 3px;
+              }
+            }
+            .r_arrow::after {
+              transition: 0.5s;
+              @include tab {
+                margin: 0 5px 1px;
+              }
+            }
+          }
+          .tenroku {
+            border-bottom-left-radius: 10px;
+            @include tab {
+              order: 1;
+              border-top: 1px solid #333;
+              width: 50%;
+            }
+          }
+          // .jrtenma {
+          //   background-color: rgb(218, 255, 201);
+          // }
+          // .ogimachi {
+          //   background-color: rgb(252, 143, 107);
+          // }
+          // .minamimorimachi {
+          // }
+          .jrosaka {
+            border-bottom-right-radius: 10px;
+            @include tab {
+              order: 2;
+              border-top: 1px solid #333;
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+
+    .purpose_area {
+      width: 100%;
+      display: none;
+      padding: 0;
+      &.show {
+        display: block;
+      }
+      .choices_purpose {
+        border: 1px solid #333;
+        border-top: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          li {
+            font-size: 1.2rem;
+            padding: 0.3rem 0 0.3rem 1rem;
+            margin: 0.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid $black;
+            border-radius: 5px;
+            &.show {
+              background-color: $pink;
+              transition: 0.5s;
+              .r_arrow::after {
+                transform: rotate(135deg);
+                transition: 0.5s;
+                margin-bottom: 3px;
+              }
+            }
+            .r_arrow {
+              &::after {
+                transition: 0.5s;
+                width: 6px;
+                height: 6px;
+                margin: 0 7px 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .member_area {
+      width: 100%;
+      display: none;
+      &.show {
+        display: block;
+      }
+      .choices_member {
+        border: 1px solid #333;
+        border-top: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          li {
+            font-size: 1.2rem;
+            padding: 0.3rem 0 0.3rem 1rem;
+            margin: 0.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid $black;
+            border-radius: 5px;
+            &.show {
+              background-color: $pink;
+              transition: 0.5s;
+              .r_arrow::after {
+                transform: rotate(135deg);
+                transition: 0.5s;
+                margin-bottom: 3px;
+              }
+            }
+            .r_arrow {
+              &::after {
+                transition: 0.5s;
+                width: 6px;
+                height: 6px;
+                margin: 0 7px 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .spot_items {
+    // background-color: $pink;
+    background: linear-gradient(to bottom, #ffdcf223 0%, #ffdcf2ca 100%);
+    border-radius: 10px;
+    padding: 0 2.5%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include tab {
+      flex-direction: column;
+      padding: 2.5% 0;
+    }
+    .spot_item {
+      // max-width: 300px;
+      width: calc(95% / 3);
+      max-height: 0;
+      border: 2px solid $black;
+      border-radius: 30px;
+      box-shadow: 2px 2px 0px $black;
+      background-color: #fff;
+      margin: 2.5% 0;
+      padding-bottom: 1rem;
+      visibility: hidden;
+      &::after {
+        @include tab {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: 0;
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.65) 100%
+          );
+        }
+      }
+      @include tab {
+        width: 95%;
+        min-height: 0px;
+        margin: 2.5%;
+        position: relative;
+        overflow: hidden;
+      }
+      &.show {
+        max-height: 100%;
+        animation: visible 0.8s;
+        visibility: visible;
+        transition: all 0.5s;
+        @include tab {
+          min-height: 300px;
+        }
+      }
+      // 検索”風”の挙動
+      @keyframes visible {
+        0% {
+          opacity: 0;
+          visibility: visible;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      &:nth-of-type(3n-1) {
+        margin: 2.5%;
+      }
+      &:hover {
+        opacity: 0.8;
+        box-shadow: 0px 0px 0px $black;
+        transform: translate(2px, 2px);
+        transition: all 0.3s;
+      }
+      .tag {
+        margin: 1rem 0 1rem 1.5rem;
+        line-height: 3rem;
+        font-size: 1rem;
+        @include tab {
+          margin-left: 1rem;
+          position: absolute;
+          top: 50%;
+          color: #fff;
+          z-index: 2;
+        }
+      }
+      .img_area {
+        width: 100%;
+        height: auto;
+        border-radius: 3px;
+        @include tab {
+          position: absolute;
+          top: 0;
+          height: 100%;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 70%;
+          border-radius: 3px;
+          @include tab {
+            position: absolute;
+            top: 0;
+          }
+        }
+      }
+      .spot_ttl {
+        margin: 1rem 0 1rem 1.5rem;
+        line-height: 3rem;
+        font-size: 1.4rem;
+        @include tab {
+          margin-left: 1rem;
+          position: absolute;
+          top: 60%;
+          color: #fff;
+          z-index: 2;
+        }
+      }
+      .at {
+        margin-left: 1.5rem;
+        @include tab {
+          position: absolute;
+          top: 70%;
+          color: #fff;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+/* 周辺スポット */

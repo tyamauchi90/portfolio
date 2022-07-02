@@ -1,0 +1,77 @@
+/* .slick-list {
+  overflow: visible;
+} */
+
+/* ロード中は非表示に */
+.slider-wrapper {
+  display: none;
+}
+.slider-wrapper.slick-initialized {
+  display: block;
+}
+
+/* 画像同士の隙間 */
+.slick-slide {
+  margin-right: 60px; /* ガター */
+}
+
+/* 矢印のカスタマイズ */
+
+.slider .slider-area .slider-wrapper span {
+  padding: 1.8rem;
+  border-radius: 50%;
+  border: 1px solid #0e67cc;
+  background-color: #fff;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%); /* y方向の位置調整 */
+}
+
+.prev {
+  left: 15px; /* x方向の位置調整 */
+  z-index: 1;
+}
+.next {
+  right: 15px; /* x方向の位置調整 */
+}
+
+.prev::before,
+.next::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 0px;
+  border-top: solid 2px #0e67cc;
+  border-right: solid 2px #0e67cc;
+  position: absolute;
+  top: 35%;
+}
+.prev::before {
+  -ms-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+  left: 40%;
+}
+
+.next::before {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  right: 40%;
+}
+
+@media (max-width: 600px) {
+  .slick-slide {
+    margin-right: 30px; /* ガター */
+  }
+
+  /* 矢印のカスタマイズ */
+  .slider .slider-area .slider-wrapper span {
+    padding: 1.5rem;
+  }
+}
