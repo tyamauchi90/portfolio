@@ -398,8 +398,8 @@ header .header_warapper {
   opacity: 0.8;
 }
 
-.products_content .text_area ol li{
-  list-style:  decimal;
+.products_content .text_area ol li {
+  list-style: decimal;
   margin-left: 2rem;
 }
 
@@ -432,8 +432,8 @@ header .header_warapper {
 .products_content .detail_btn:hover::before {
   background-color: #555;
   border-radius: 14px;
-  width:calc(100% - 2px);
-	height:calc(100% - 2px);
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
   transition: 0.4s;
 }
 .products_content .detail_btn::after {
@@ -450,8 +450,8 @@ header .header_warapper {
 .products_content .detail_btn:hover::after {
   background-color: #555;
   border-radius: 14px;
-  width:calc(100% - 2px);
-	height:calc(100% - 2px);
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
   transition: 0.4s;
 }
 
@@ -475,7 +475,7 @@ header .header_warapper {
   transition: 0.4s;
 }
 
-.products_content .detail{
+.products_content .detail {
   visibility: hidden;
   max-height: 0;
   user-select: none;
@@ -485,36 +485,36 @@ header .header_warapper {
   border-radius: 5px;
 }
 
-.products_content .detail.show{
+.products_content .detail.show {
   background-color: #fff;
   visibility: visible;
   max-height: none;
-  user-select:auto;
+  user-select: auto;
   transition: 0.4s;
 }
 
-.products_content .detail > dl{
+.products_content .detail > dl {
   counter-reset: number 0;
 }
 
-.products_content .detail > dl > dt{
+.products_content .detail > dl > dt {
   font-size: 1.2rem;
   font-weight: bold;
   border-bottom: 0.5px solid #bbb;
   margin-left: 0.8rem;
 }
 
-.products_content .detail > dl > dt::before{
+.products_content .detail > dl > dt::before {
   display: inline-block;
   color: #555;
   counter-increment: number 1;
-  content: counter(number)".";
+  content: counter(number) ".";
 }
 
-.products_content .detail > dl > dd{
+.products_content .detail > dl > dd {
   margin-bottom: 1.5rem;
 }
-.products_content .detail > dl > dd:last-child{
+.products_content .detail > dl > dd:last-child {
   margin-bottom: 0;
 }
 
@@ -554,10 +554,11 @@ header .header_warapper {
 }
 
 .greeting .avater img {
-  width: 60%;
+  width: 90%;
+  height: auto;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0px 2px 3px #eee;
+  box-shadow: 3px 3px 10px #fff;
   margin: 0 auto;
 }
 
@@ -623,10 +624,10 @@ header .header_warapper {
   border-bottom-right-radius: 5px;
 }
 
-.personal_history table td > span{
+.personal_history table td > span {
   display: inline-block;
   font-size: 1.2rem;
-  font-weight:lighter;
+  font-weight: lighter;
   padding-top: 0.8rem;
   margin: 0 2rem;
 }
@@ -1001,7 +1002,7 @@ footer {
     transition: 0.4s;
   }
   .header_warapper .gnav_bg.active {
-    overflow:auto;
+    overflow: auto;
     opacity: 1;
     right: 0;
     border-radius: 5px;
@@ -1026,8 +1027,6 @@ footer {
     color: #fff;
     display: block;
   }
-
-
 
   /* ▼　skill　▼ */
 
@@ -1107,7 +1106,8 @@ footer {
 
   .greeting .avater {
     width: 100%;
-    margin-bottom: 5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .greeting .avater img {
